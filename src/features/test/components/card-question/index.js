@@ -25,7 +25,6 @@ export const CardQuestion = ({
   useEffect(() => {
     setUserAnswer(null)
   }, [position])
-  // todo fix
 
   return (
     <Card>
