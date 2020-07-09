@@ -46,14 +46,14 @@ export const TestPage = () => {
 
   useEffect(() => {
     if (wrongAnswersCounter > 2) {
-      dispatch(testActions.setFinishStatus('defeat'))
+      dispatch(testActions.setFinishStatus('fail'))
       history.push('/finish')
     }
   }, [wrongAnswersCounter, dispatch, history])
 
   useEffect(() => {
     if (currentQuestionPosition > 20 && wrongAnswersCounter <= 2) {
-      dispatch(dispatch.setFinishStatus('win'))
+      dispatch(dispatch.setFinishStatus('success'))
       history.push('/finish')
     }
   }, [currentQuestionPosition, dispatch, history, wrongAnswersCounter])

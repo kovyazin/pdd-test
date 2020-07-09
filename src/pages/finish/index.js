@@ -34,14 +34,14 @@ export const FinishPage = () => {
         <Card className="text-center">
           <Card.Body>
             <Card.Text>
-              {finishStatus === 'win' && (
+              {finishStatus === 'success' && (
                 <Fragment>
                   Поздравляем вас, <b>{username}</b>, с успешным прохождением
                   теста <br />
                   Допущено ошибок: {wrongAnswersCounter}
                 </Fragment>
               )}
-              {finishStatus === 'defeat' && (
+              {finishStatus === 'fail' && (
                 <Fragment>
                   К сожалению, <b>{username}</b>, вы допустили более 2 ошибок и
                   не прошли тест. Не унывайте, пробуйте ещё и у вас обязательно

@@ -7,7 +7,7 @@ const initialState = {
   currentTicket: [],
   wrongAnswersCounter: 0,
   currentQuestionPosition: 1,
-  finishStatus: 'not finished' // win, defeat
+  finishStatus: 'not finished' // success, fail
 }
 
 export const reducer = (state = initialState, action) => {
