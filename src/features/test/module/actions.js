@@ -25,45 +25,44 @@ const fetchTicketsFailure = (error) => ({
 
 export const generateTicket = (tickets) => (dispatch) => {
   const counter = {}
+  const generatedQuestions = []
 
-  const generatedQuestions = new Array(20)
-    .fill(null)
-    .map((el, i, generatedQuestions) => {
-      const getRandomSection = () => {
-        const filteredSection = tickets.filter(({ position }) => {
-          return counter[position] === undefined || counter[position] <= 4
-        })
+  for (let i = 0; i < 20; i++) {
+    const getRandomSection = () => {
+      const filteredSection = tickets.filter(({ position }) => {
+        return counter[position] === undefined || counter[position] <= 4
+      })
 
-        const idx = randomIntFromInterval(0, filteredSection.length - 1)
+      const idx = randomIntFromInterval(0, filteredSection.length - 1)
 
-        const { position } = filteredSection[idx]
-        counter[position] =
-          counter[position] === undefined ? 1 : counter[position] + 1
+      const { position } = filteredSection[idx]
+      counter[position] =
+        counter[position] === undefined ? 1 : counter[position] + 1
 
-        return filteredSection[idx]
-      }
+      return filteredSection[idx]
+    }
 
-      const getRandomQuestion = (section) => {
-        const filteredQuestions = section.tickets.filter(({ title }) => {
-          return !generatedQuestions.some(
-            (question) => title === question?.title
-          )
-        })
+    const getRandomQuestion = (section) => {
+      const filteredQuestions = section.tickets.filter(({ title }) => {
+        return !generatedQuestions.some(
+          (question) => title === question?.title
+        )
+      })
 
-        const idx = randomIntFromInterval(0, filteredQuestions.length - 1)
+      const idx = randomIntFromInterval(0, filteredQuestions.length - 1)
 
-        return filteredQuestions[idx]
-      }
+      return filteredQuestions[idx]
+    }
 
-      const question = getRandomQuestion(getRandomSection())
+    const question = getRandomQuestion(getRandomSection())
 
-      return {
-        ...question,
-        position: i + 1,
-        image: `https://raw.githubusercontent.com/etspring/pdd_russia/master/${question.image}`
-      }
+    generatedQuestions.push({
+      ...question,
+      position: i + 1,
+      image: `https://raw.githubusercontent.com/etspring/pdd_russia/master/${question.image}`
     })
-
+  }
+      
   dispatch(setCurrentTicket(generatedQuestions))
 }
 
