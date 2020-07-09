@@ -13,6 +13,7 @@ export const CardQuestion = ({
   correct,
   hint,
   answers,
+  position,
   onClickNext
 }) => {
   const [userAnswer, setUserAnswer] = useState(null)
@@ -23,7 +24,7 @@ export const CardQuestion = ({
 
   useEffect(() => {
     setUserAnswer(null)
-  }, [image, title, correct, hint, answers])
+  }, [position])
   // todo fix
 
   return (
@@ -80,5 +81,6 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   correct: PropTypes.number.isRequired,
   hint: PropTypes.string.isRequired,
-  answers: PropTypes.arrayOf(PropTypes.string).isRequired
+  answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+  position: PropTypes.number
 }

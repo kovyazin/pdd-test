@@ -91,6 +91,7 @@ export const TestPage = () => {
                   answers={currentQuestion.answers}
                   correct={currentQuestion.correct}
                   hint={currentQuestion.hint}
+                  position={currentQuestionPosition}
                   onClickNext={handleClickNextAnswer}
                 />
               </div>
