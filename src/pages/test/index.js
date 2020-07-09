@@ -13,7 +13,7 @@ import {
   testSelectors
 } from '../../features/test'
 import { Loader } from '../../ui'
-import { sessionSelector, sessionSelectors } from '../../lib/store/session'
+import { sessionSelectors } from '../../lib/store/session'
 
 import './styles.scss'
 
