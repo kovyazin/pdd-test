@@ -7,8 +7,6 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button'
 
-// import './styles.scss'
-
 export const CardQuestion = ({
   image,
   title,
@@ -29,7 +27,7 @@ export const CardQuestion = ({
   // todo fix
 
   return (
-    <Card className="ticket">
+    <Card>
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Text>{title}</Card.Text>
